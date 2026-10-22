@@ -1,0 +1,23 @@
+name: Build Windows EXE
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dipendenze
+        run: pip install -r requirements.txt pyinstaller
+      - name: Compila exe
+        run: pyinstaller GpsTrackVideo.spec --noconfirm
+      - name: Carica exe
+        uses: actions/upload-artifact@v4
+        with:
+          name: GpsTrackVideo-Windows
+          path: dist/GpsTrackVideo
