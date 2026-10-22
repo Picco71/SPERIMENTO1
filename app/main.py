@@ -15,7 +15,8 @@ from PySide6.QtWidgets import (QApplication, QCheckBox, QColorDialog, QComboBox,
     QMessageBox, QProgressBar, QPushButton, QTabWidget, QVBoxLayout, QWidget)
 
 from PySide6.QtWebEngineWidgets import QWebEngineView
-from PySide6.QtWebEngineCore import QWebChannel
+from PySide6.QtWebEngineCore import QWebEnginePage
+from PySide6.QtWebChannel import QWebChannel
 
 APP_DIR = os.path.dirname(os.path.abspath(__file__))
 FFMPEG = imageio_ffmpeg.get_ffmpeg_exe()
